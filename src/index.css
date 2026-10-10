@@ -89,6 +89,15 @@
   }
 }
 
+@keyframes organicBreathe {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.06);
+  }
+}
+
 .animate-curtain-left {
   animation: curtainDriftLeft 14s ease-in-out infinite;
 }
@@ -105,11 +114,17 @@
   animation: flowPulse 1.4s linear infinite;
 }
 
+.animate-organic-breathe {
+  animation: organicBreathe 14s ease-in-out infinite;
+  transform-origin: top center;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-curtain-left,
   .animate-curtain-right,
   .animate-pulse-glow,
-  .animate-flow-pulse {
+  .animate-flow-pulse,
+  .animate-organic-breathe {
     animation: none !important;
   }
 }
