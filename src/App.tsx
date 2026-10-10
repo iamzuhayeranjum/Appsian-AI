@@ -10,6 +10,7 @@ import { Hero } from './components/Hero';
 import { IntegrationsStrip } from './components/IntegrationsStrip';
 import { MissedCallCalculator } from './components/MissedCallCalculator';
 import { FeaturesSection } from './components/FeaturesSection';
+import { HowItWorks } from './components/HowItWorks';
 import { DarkBand1 } from './components/DarkBand1';
 import { TrustRow } from './components/TrustRow';
 import { PricingSection } from './components/PricingSection';
@@ -78,6 +79,9 @@ export default function App() {
 
       {/* 3. Features (white section with 987px big card & two 485px cards) */}
       <FeaturesSection />
+
+      {/* How it works: problem + animated call flow */}
+      <HowItWorks />
 
       {/* 4. Dark Band 1 (sky-blue curtain variant, 1187px wide) */}
       <DarkBand1 />
