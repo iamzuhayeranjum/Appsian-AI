@@ -6,6 +6,7 @@
 export interface PricingPlan {
   id: string;
   name: string;
+  description: string;
   monthlyPrice: number;
   minutesLabel: string;
   callsLabel: string;
@@ -45,9 +46,9 @@ export const content = {
       loginLabel: 'Log In',
       ctaLabel: 'Book a Demo',
     },
-    h1Line1: 'Never miss a call.',
-    h1Line2: 'Book more jobs.',
-    subline: 'Appsian answers every inbound call, qualifies the enquiry and books the next step, 24/7.',
+    h1Line1: 'Never Miss A Call.',
+    h1Line2: 'Book More Jobs.',
+    subline: 'Appsian Answers Every Inbound Call, Qualifies The Enquiry And Books The Next Step, 24/7.',
     primaryCta: 'Book a Demo',
     secondaryCta: 'Get Started',
   },
@@ -122,6 +123,7 @@ export const content = {
       {
         id: 'starter',
         name: 'Starter',
+        description: 'Perfect for trades and small contractors looking to capture every lead.',
         monthlyPrice: 299,
         minutesLabel: '300 minutes/month',
         callsLabel: '(60-75 calls)',
@@ -139,6 +141,7 @@ export const content = {
       {
         id: 'growth',
         name: 'Growth',
+        description: 'Ideal for growing trade businesses that need higher volume and analytics.',
         monthlyPrice: 499,
         minutesLabel: '600 minutes/month',
         callsLabel: '(120-150 calls)',
@@ -159,6 +162,7 @@ export const content = {
       {
         id: 'scale',
         name: 'Scale',
+        description: 'For multi-crew companies wanting custom workflow routing and sync.',
         monthlyPrice: 999,
         minutesLabel: '1,600 minutes/month',
         callsLabel: '(320-400 calls)',

@@ -58,9 +58,9 @@ export const TrustRow: React.FC = () => {
   ];
 
   return (
-    <section className="w-full py-20 bg-white">
+    <section className="w-full pb-[140px] bg-white">
       <div className="max-w-[1187px] mx-auto px-4">
-        {/* H2 centered, about 48px, two lines */}
+        {/* H2 centered, 48px, weight 400, light and tight */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(12px)', y: 24 }}
           whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
@@ -68,7 +68,7 @@ export const TrustRow: React.FC = () => {
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-display font-medium text-[#2D283C] tracking-tight leading-[1.18] max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-display font-normal text-[#2D283C] tracking-[-0.03em] leading-[1.18] max-w-3xl mx-auto">
             <span>{trustRow.h2Line1}</span>
             <br />
             <span>{trustRow.h2Line2}</span>
@@ -90,7 +90,7 @@ export const TrustRow: React.FC = () => {
               }}
               className="flex flex-col items-start text-left"
             >
-              <div className="mb-6 p-2 rounded-2xl bg-[#F6F8F7] border border-slate-100/80 shadow-xs">
+              <div className="mb-6 p-2 rounded-2xl bg-[#F6F8F7] shadow-xs">
                 {icons[idx]}
               </div>
 
@@ -98,7 +98,7 @@ export const TrustRow: React.FC = () => {
                 {col.title}
               </h3>
 
-              <p className="text-base sm:text-[16px] text-[#2D283C]/85 leading-relaxed">
+              <p className="text-[16px] sm:text-[17px] leading-[25px] text-[#2D283C]/85">
                 {col.blurb}
               </p>
             </motion.div>

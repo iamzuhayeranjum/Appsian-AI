@@ -11,48 +11,78 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="w-full bg-white pt-10 pb-16 flex justify-center px-4">
-      <div className="w-full max-w-[1187px] flex flex-col gap-8">
-        {/* Top row: tagline on left, "Back to top" on right */}
+      <div className="w-full max-w-[1187px] flex flex-col gap-10">
+        {/* Top row: Tagline at left (16px, #55536A), Back to top pill at right (105x32px) */}
         <div className="flex items-center justify-between">
-          <p className="text-sm sm:text-base text-slate-500 font-normal">
+          <p className="text-[16px] text-[#55536A] font-normal tracking-tight">
             {footer.tagline}
           </p>
 
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80 text-xs font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer"
+            className="w-[105px] h-[32px] rounded-full bg-white text-slate-700 hover:text-slate-900 border border-slate-200/70 text-xs font-medium shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-1.5"
           >
             <span>{footer.backToTop}</span>
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Giant Appsian wordmark spanning the full 1187px content width with blue-to-cyan gradient */}
-        {/* TODO: Swap in verified brand vector mark and typography SVG */}
-        <div className="w-full flex items-center justify-start gap-4 sm:gap-8 py-2 overflow-hidden select-none">
-          {/* Logo mark placeholder */}
-          <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 shrink-0 rounded-3xl bg-gradient-to-tr from-[#4A7FF0] to-[#B5F3FB] p-[4px] shadow-sm flex items-center justify-center">
-            <div className="w-full h-full bg-white rounded-[20px] sm:rounded-[24px] flex items-center justify-center">
-              <div className="w-1/2 h-1/2 rotate-45 border-4 sm:border-8 border-transparent bg-gradient-to-br from-[#4A7FF0] to-[#B5F3FB] rounded-md" />
-            </div>
-          </div>
-
-          {/* Giant Wordmark */}
-          <span
-            className="text-6xl sm:text-8xl md:text-9xl lg:text-[148px] font-display font-bold tracking-tight leading-none bg-clip-text text-transparent truncate"
-            style={{
-              backgroundImage: 'linear-gradient(90deg, #4A7FF0 0%, #76A5F7 45%, #B5F3FB 100%)',
-            }}
+        {/* The 'Appsian' wordmark and logo mark are horizontally CENTERED and scaled so the lockup spans the full 1187px content width, about 255px tall. Gradient #4A7BEE to #BFF6FB */}
+        <div className="w-full flex items-center justify-center overflow-hidden py-2 select-none">
+          <svg
+            viewBox="0 0 1187 255"
+            className="w-full h-auto max-h-[255px] overflow-visible"
+            fill="none"
           >
-            {footer.brand}
-          </span>
+            <defs>
+              <linearGradient id="footerWordmarkGrad" x1="0" y1="0" x2="1187" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#4A7BEE" />
+                <stop offset="100%" stopColor="#BFF6FB" />
+              </linearGradient>
+            </defs>
+
+            {/* Centered Lockup: Logo Mark + Appsian Text */}
+            <g transform="translate(30, 15)">
+              {/* Logo mark matching the video's faceted geometric ring */}
+              <g transform="translate(0, 12)">
+                <polygon
+                  points="90,8 172,55 172,145 90,192 8,145 8,55"
+                  stroke="url(#footerWordmarkGrad)"
+                  strokeWidth="28"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <polygon
+                  points="90,62 134,100 90,138 46,100"
+                  stroke="url(#footerWordmarkGrad)"
+                  strokeWidth="14"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </g>
+
+              {/* Text: Appsian with tight letter-spacing */}
+              <text
+                x="220"
+                y="172"
+                fontFamily="Instrument Sans, sans-serif"
+                fontSize="205"
+                fontWeight="500"
+                letterSpacing="-0.04em"
+                fill="url(#footerWordmarkGrad)"
+              >
+                Appsian
+              </text>
+            </g>
+          </svg>
         </div>
 
-        {/* Full-width legal pill: 60px tall, #F4F5F9, fully rounded */}
-        <div className="w-full min-h-[60px] bg-[#F4F5F9] rounded-full px-6 sm:px-8 py-3 flex flex-col md:flex-row items-center justify-between gap-4 border border-slate-100">
-          {/* Legal links and copyright */}
-          <div className="text-xs sm:text-[13px] text-slate-500 font-normal text-center md:text-left">
+        {/* Legal pill: 1187x60px, fully rounded, #F4F5F9 */}
+        <div className="w-full h-[60px] bg-[#F4F5F9] rounded-full px-6 sm:px-8 flex items-center justify-between gap-4">
+          {/* Legal links and copyright at left */}
+          <div className="text-xs sm:text-[13px] text-slate-500 font-normal truncate">
             <span>Privacy Policy</span>
             <span className="mx-2 text-slate-300">·</span>
             <span>Terms of Service</span>
@@ -60,8 +90,8 @@ export const Footer: React.FC = () => {
             <span>©2026 Appsian. All Rights Reserved.</span>
           </div>
 
-          {/* Color social icons separated by thin dividers */}
-          <div className="flex items-center gap-3">
+          {/* Colored social icons at right separated by thin vertical dividers */}
+          <div className="flex items-center gap-3 shrink-0">
             {/* LinkedIn */}
             <a
               href="https://linkedin.com"
@@ -85,7 +115,7 @@ export const Footer: React.FC = () => {
               aria-label="YouTube"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z" />
+                <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 22c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z" />
               </svg>
             </a>
             <div className="w-[1px] h-3.5 bg-slate-300" />
@@ -104,7 +134,7 @@ export const Footer: React.FC = () => {
             </a>
             <div className="w-[1px] h-3.5 bg-slate-300" />
 
-            {/* X (formerly Twitter) */}
+            {/* X */}
             <a
               href="https://x.com"
               target="_blank"

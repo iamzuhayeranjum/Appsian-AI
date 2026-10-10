@@ -17,7 +17,7 @@ export const FaqSection: React.FC = () => {
     return (
       <div
         key={item.id}
-        className="w-full bg-[#F7F8FB] hover:bg-[#F0F2F7] rounded-[28px] transition-colors duration-200 overflow-hidden border border-slate-100/60"
+        className="w-full bg-[#F7F8FB] hover:bg-[#F0F2F7] rounded-[28px] transition-colors duration-200 overflow-hidden shadow-xs"
       >
         <button
           type="button"
@@ -42,7 +42,7 @@ export const FaqSection: React.FC = () => {
               transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
               className="overflow-hidden"
             >
-              <div className="px-6 sm:px-8 pb-6 pt-1 text-[16px] leading-[25px] text-[#2D283C]/85">
+              <div className="px-6 sm:px-8 pb-6 pt-1 text-[16px] leading-[25px] text-[#2D283C]/85 font-sans">
                 {item.answer}
               </div>
             </motion.div>
@@ -53,9 +53,9 @@ export const FaqSection: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-20 bg-white flex justify-center px-4">
+    <section className="w-full pb-[140px] bg-white flex justify-center px-4">
       <div className="w-full max-w-[1187px]">
-        {/* H2 about 48px */}
+        {/* H2 about 48px, weight 400, light and tight */}
         <motion.div
           initial={{ opacity: 0, filter: 'blur(12px)', y: 24 }}
           whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
@@ -63,7 +63,7 @@ export const FaqSection: React.FC = () => {
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-display font-medium text-[#2D283C] tracking-tight leading-[1.18]">
+          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-display font-normal text-[#2D283C] tracking-[-0.03em] leading-[1.18]">
             {faq.h2}
           </h2>
         </motion.div>
