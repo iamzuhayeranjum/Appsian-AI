@@ -1,20 +1,19 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { content } from '../content';
+import { Card, SectionHeader, Reveal, EyebrowPill } from './design-system';
 
 export const TrustRow: React.FC = () => {
   const { trustRow } = content;
 
-  // Geometric line-art icons matching the video's aesthetic (48px, 1px stroke)
+  // Geometric line-art icons (48px, 1px stroke)
   const icons = [
-    // 1. Geometric intersecting diamond/lattice
     (
       <svg
-        className="w-12 h-12 text-[#2D283C]"
+        className="w-10 h-10 text-[#0B0B0F]"
         viewBox="0 0 48 48"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1"
+        strokeWidth="1.2"
       >
         <rect x="12" y="12" width="24" height="24" transform="rotate(45 24 24)" />
         <rect x="15" y="15" width="18" height="18" />
@@ -23,14 +22,13 @@ export const TrustRow: React.FC = () => {
         <line x1="4" y1="24" x2="44" y2="24" />
       </svg>
     ),
-    // 2. Concentric grooved sphere / ringed orb
     (
       <svg
-        className="w-12 h-12 text-[#2D283C]"
+        className="w-10 h-10 text-[#0B0B0F]"
         viewBox="0 0 48 48"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1"
+        strokeWidth="1.2"
       >
         <circle cx="24" cy="24" r="18" />
         <ellipse cx="24" cy="24" rx="18" ry="7" />
@@ -38,14 +36,13 @@ export const TrustRow: React.FC = () => {
         <line x1="24" y1="6" x2="24" y2="42" />
       </svg>
     ),
-    // 3. Geometric layered cube / polygon structure
     (
       <svg
-        className="w-12 h-12 text-[#2D283C]"
+        className="w-10 h-10 text-[#0B0B0F]"
         viewBox="0 0 48 48"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1"
+        strokeWidth="1.2"
       >
         <polygon points="24,6 40,15 40,33 24,42 8,33 8,15" />
         <line x1="24" y1="6" x2="24" y2="24" />
@@ -58,50 +55,34 @@ export const TrustRow: React.FC = () => {
   ];
 
   return (
-    <section className="w-full pb-[140px] bg-white">
-      <div className="max-w-[1187px] mx-auto px-4">
-        {/* H2 centered, 48px, weight 400, light and tight */}
-        <motion.div
-          initial={{ opacity: 0, filter: 'blur(12px)', y: 24 }}
-          whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-display font-normal text-[#2D283C] tracking-[-0.03em] leading-[1.18] max-w-3xl mx-auto">
-            <span>{trustRow.h2Line1}</span>
-            <br />
-            <span>{trustRow.h2Line2}</span>
-          </h2>
-        </motion.div>
+    <section className="w-full pb-[120px] bg-[#F5F6F7]">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+        <SectionHeader
+          eyebrow={<EyebrowPill>Principles</EyebrowPill>}
+          headline={[
+            { text: trustRow.h2Line1, weight: 'light' },
+            { text: trustRow.h2Line2, weight: 'strong' },
+          ]}
+        />
 
-        {/* Three columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-12">
+        {/* Three Card columns (20px radius, shadow-1, 4px hover lift) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {trustRow.columns.map((col, idx) => (
-            <motion.div
-              key={col.title}
-              initial={{ opacity: 0, filter: 'blur(10px)', y: 24 }}
-              whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.1 * idx,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="flex flex-col items-start text-left"
-            >
-              <div className="mb-6 p-2 rounded-2xl bg-[#F6F8F7] shadow-xs">
-                {icons[idx]}
-              </div>
+            <Reveal key={col.title} delay={0.1 * idx}>
+              <Card className="p-8 h-full flex flex-col items-start text-left">
+                <div className="mb-6 p-2.5 rounded-[12px] bg-[#F5F6F7] border border-[rgba(11,11,15,0.06)] shadow-xs">
+                  {icons[idx]}
+                </div>
 
-              <h3 className="text-2xl sm:text-[24px] font-display font-medium text-[#2D283C] tracking-tight mb-3">
-                {col.title}
-              </h3>
+                <h3 className="text-[20px] font-display font-[500] text-[#0B0B0F] tracking-tight mb-2">
+                  {col.title}
+                </h3>
 
-              <p className="text-[16px] sm:text-[17px] leading-[25px] text-[#2D283C]/85">
-                {col.blurb}
-              </p>
-            </motion.div>
+                <p className="text-[15px] leading-[24px] text-[#5B5F68]">
+                  {col.blurb}
+                </p>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </div>

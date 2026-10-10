@@ -62,7 +62,7 @@ export default function App() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white text-[#2D283C] flex flex-col items-center">
+    <div className="w-full min-h-screen bg-[#F5F6F7] text-[#0B0B0F] flex flex-col items-center">
       {/* 1. Hero (full viewport height, curtain gradient, flush to top) */}
       <Hero
         onBookDemoClick={handleOpenDemoModal}

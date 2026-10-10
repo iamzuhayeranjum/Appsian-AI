@@ -25,7 +25,7 @@ Below is the exhaustive index of all placeholders and TODO items:
      - Testimonial 3 (David Chen, Precision Air HVAC)
      Stylized gradient avatars with initials are used to avoid fabricated photo identities.
 
-3. **Lead Capture Integration (`src/components/FinalCtaBand.tsx`)**:
+3. **Lead Capture Integrations (`src/components/FinalCtaBand.tsx` & `src/components/DemoBar.tsx`)**:
    - `TODO`: Wire up the form submission to the production backend lead capture endpoint / CRM webhook (e.g., POST `/api/leads` or direct HubSpot API).
 
 4. **Footer Logo Vector & Typography Mark (`src/components/Footer.tsx`)**:
