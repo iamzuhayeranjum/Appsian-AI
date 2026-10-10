@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import { Hero } from './components/Hero';
 import { IntegrationsStrip } from './components/IntegrationsStrip';
+import { MissedCallCalculator } from './components/MissedCallCalculator';
 import { FeaturesSection } from './components/FeaturesSection';
 import { DarkBand1 } from './components/DarkBand1';
 import { TrustRow } from './components/TrustRow';
@@ -62,7 +63,7 @@ export default function App() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#F5F6F7] text-[#0B0B0F] flex flex-col items-center">
+    <div className="w-full min-h-screen bg-white text-[#2D283C] flex flex-col items-center">
       {/* 1. Hero (full viewport height, curtain gradient, flush to top) */}
       <Hero
         onBookDemoClick={handleOpenDemoModal}
@@ -71,6 +72,9 @@ export default function App() {
 
       {/* 2. Integrations Strip */}
       <IntegrationsStrip />
+
+      {/* Missed-call calculator: The cost of a missed call */}
+      <MissedCallCalculator />
 
       {/* 3. Features (white section with 987px big card & two 485px cards) */}
       <FeaturesSection />
